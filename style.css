@@ -43,3 +43,125 @@ p {
 #what{
     background-color:red;
 }
+
+#textBox{
+   text-align: center;
+
+}
+  
+  
+@media only screen and (min-width: 0px) {
+    #textBox{
+        background-color:white;
+    }
+  /* Styles */
+}
+
+
+/* iPhone 4*/
+@media only screen and (min-width: 320px) {
+    #textBox{
+        background-color:orange;
+    }
+  /* Styles */
+}
+
+
+/* Samsung Galaxy S5 (portrait) ----------- */
+@media only screen and (min-width: 360px) {
+/* Styles */
+  #textBox{
+        background-color:red;
+    }
+}
+
+/* iPhone 6 (portrait) ----------- */
+@media only screen and (min-width: 375px) {
+/* Styles */
+  #textBox{
+        background-color:purple;
+    }
+}
+
+/* iPhone 6+ (portrait) ----------- */
+@media only screen and (min-width: 414px) {
+/* Styles */
+
+      #textBox{
+        background-color:green;
+    }
+}
+
+/* iPhone 4 (landscape) ----------- */
+@media only screen and (min-width: 480px) {
+/* Styles */
+  #textBox{
+        background-color:yellow;
+    }
+}
+
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and  (min-width: 568px){
+/* Styles */
+  #textBox{
+        background-color:silver;
+    }
+}
+
+/* Samsung Galaxy S3 (landscape) ----------- */
+@media only screen and (min-width: 640px){
+/* Styles */
+  #textBox{
+        background-color:black;
+    }
+}
+
+/* iPhone 6 (landscape) ----------- */
+@media only screen and (min-width: 667px) {
+/* Styles */
+  #textBox{
+        background-color:yellow;
+    }
+}
+
+/* iPhone 6+ (landscape) ----------- */
+@media only screen and  (min-width: 736px){
+/* Styles */
+  #textBox{
+        background-color:red;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px)  {
+/* Styles */
+  #textBox{
+        background-color:blue;
+    }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width: 1024px){
+/* Styles */
+  #textBox{
+        background-color:silver;
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width: 1224px) {
+/* Styles */
+  #textBox{
+        background-color:purple;
+    }
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width:1824px) {
+/* Styles */
+  #textBox{
+        background-color:black;
+    }
+}
+

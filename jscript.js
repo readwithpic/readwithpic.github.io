@@ -188,7 +188,6 @@ function show() {
                // $('#what').append('<br>' + 'insideJvalue: ' + j);
             }
              myScroll=1;
-           
              if(lastList.offset().top < $(window).height()){
                        $(document).scroll();
                    }
