@@ -1,0 +1,45 @@
+
+li {
+    display: inline-block;
+}
+
+img{
+    margin-right:-70px;
+}
+figcaption {
+   
+}
+
+#searchbox {
+    width:600px;
+    height:200px;
+}
+
+p {
+ display:inline;   
+}
+
+.onlyText{
+ margin-left:4px;   
+}
+
+#fakeBox{
+    border:1px solid black;
+    width:120px;
+    height:150px;
+    background-color:brown;
+    margin-right:-70px;
+}
+
+#fakeList{
+   
+}
+
+#sDebug{
+
+    background-color:brown;
+}
+
+#what{
+    background-color:red;
+}
