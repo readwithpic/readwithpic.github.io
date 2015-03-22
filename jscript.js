@@ -64,6 +64,7 @@ $(document).ready(function () {
     }); 
 
     $(window).resize(function(){
+             $('#textBox').css('height',winHeight/2);
        // var winScroll= $(document).scroll();
        // winScroll.promise().done(function(){ 
               if(lastList.offset().top < $(window).height() && myScroll===1){
