@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="jscript.js"></script>
     </head>
     <body>
-    	<div id="textBox">
-        <form>
-            <textarea rows="10" cols="80" id="textInput" name="texthere"></textarea> <br>
-            <button type="button" id="convert" disabled>Convert</button>
-        </form>
+        <div id="roundB"></div>
+        <div id="textBox">
+                <textarea rows="10" cols="80" id="textInput" name="texthere"></textarea>
+                <br>
+                <button type="button" id="convert" disabled>Convert</button>
         </div>
-            
-
-        <div id="loading">
+        <div>
+            <button type="button" id="loadme">Load</button>
+            <button type="button" id="debug">debug</button>
         </div>
         <div id="display">
-            <ul></ul>
+            <ul>
+                 <li id="listLoad">
+                    <div id="loadingSpin">
+                        <div class="spinner">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
-             <button type="button" id="loadme">Load</button>
-             <button type="button" id="debug">debug</button>
-         <div>
-            <span id="sDebug"> </span>     
-             <span id="what"></span>
-         </div>
-        </body>
-    </html>
+            <div><span id="sDebug"> </span><span id="what"></span></div>
+    </body>
+</html>
