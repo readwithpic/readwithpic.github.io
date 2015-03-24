@@ -1,18 +1,16 @@
 var link = new Array();
 var link2 = new Array();
-var k, j, i, userInput, cleanSent, search, list, h, startNum, constantV, calNum, docHeight;
+var k, j, i, userInput, cleanSent, search,h, startNum, constantV, calNum;
 var filterWords = ["is", "are", "all", "another", "any", "anybody", "anyone", "anything", "botheach", "each", "other", "either", "everybody", "everyone", "everything", "few", "he", "her", "hers", "herself", "him", "himself", "his", "it", "its", "itself", "many", "me", "mine", "more", "most", "much", "myself", "neither", "no", "one", "nobody", "none", "nothing", "another", "other", "others", "ours", "ourselves", "several", "she", "some", "somebody", "someone", "something", "their", "theirs", "them", "themselves", "these", "they", "this", "those", "us", "we", "what", "whatever", "which", "whichever", "who", "whoever", "whom", "whomever", "whose", "you", "your", "yours", "yourself", "yourselves", "that", "it's", "time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact", "be", "have", "do", "say", "get", "make", "go", "know", "take", "see", "come", "think", "look", "want", "give", "use", "find", "tell", "ask", "work", "seem", "feel", "try", "leave", "call", "good", "new", "first", "last", "long", "great", "little", "own", "other", "old", "right", "big", "high", "different", "small", "large", "next", "early", "young", "important", "few", "public", "bad", "same", "able", "to", "of", "in", "for", "on", "with", "at", "by", "from", "up", "about", "into", "over", "after", "beneath", "under", "above", "the", "and", "a", "that", "", "it", "not", "he", "as", "you", "this", "but", "his", "they", "her", "she", "or", "an", "will", "my", "one", "all", "would", "there", "their", "aboard", "about", "above", "across", "after", "against", "along", "amid", "among", "around", "as", "at", "before", "behind", "below", "beneath", "beside", "besides", "between", "beyond", "but", "by", "concerning", "considering", "despite", "down", "during", "except", "excepting", "excluding", "following", "for", "from", "in", "inside", "into", "like", "minus", "near", "of", "off", "on", "onto", "opposite", "outside", "over", "past", "per", "plus", "regarding", "round", "save", "since", "than", "through", "to", "toward", "towards", "under", "underneath", "unlike", "until", "up", "upon", "versus", "via", "with", "within", "without"];
-var count = 0;
-var lastList;
-var textInput;
-//to disable scroll once it's executed.
-var myScroll = 1;
-var loadList;
+var lastList,textInput,myScroll,loadList,count;
+var $win,$doc,$list;
 
 $(document).ready(function () {
-    list = $('li');
+    $list= $('li');
     textInput = $('#textInput');
     loadList = $('#listLoad');
+    $win=$(window);
+    $doc=$(document);
     $('textarea').keyup(function () {
         if ($(this).val()) {
             $('#convert').removeAttr('disabled');
@@ -28,13 +26,12 @@ $(document).ready(function () {
             $('#textBox').slideUp('fast');
         }
         loadList.show();
-        //link.length = 0;
         count = 0;
         h = 0;
         j = 0;
         // default number of search images to be loaded at first
         startNum = 10;
-        //constantV is added to calNum(to load given number consistant images after each scroll)
+        //constantV is assigned to calNum to load given number consistant images after each scroll
         calNum = startNum;
         link.length = 0;
         link2.length = 0;
@@ -45,18 +42,16 @@ $(document).ready(function () {
         cleanSent = userInput.replace(/\s+/g, ' ');
         search = cleanSent.split(" ");
         callAjax(search[j]);
-
-        // preTest();
     });
 
     $('#roundB').click(function () {
-        $('#what').append("yes");
+        //display textBox at the middle of screen.
         $('#textBox').css('position', 'absolute');
         $('#textInput').css({
             'top': '11%',
-                'left': '9%',
-                'width': '80%',
-                'height': '150%'
+            'left': '9%',
+            'width': '80%',
+            'height': '150%'
         });
         $('#convert').css({
             'top': '165%'
@@ -77,37 +72,32 @@ $(document).ready(function () {
         }
     });
 
-    $(window).resize(function () {
-        // var winScroll= $(document).scroll();
-        // winScroll.promise().done(function(){ 
-        if (lastList.offset().top < $(window).height() && myScroll === 1) {
+    $win.resize(function () {
+        // load the rest of screen if the user reduce the zoom less than 100%      
+        if (lastList.offset().top < $win.height() && myScroll === 1) {
             myScroll = 1;
-            $(document).scroll();
+            $win.scroll();
         }
-
-        // });
     });
 
-    $(document).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() > $(document).height() - $(document).height() / 4 && myScroll === 1) {
-            if (j < search.length) {
-                h = 0;
-                //To reuse same Array link2 
-                link2.length = 0;
-                //load number of images after each scroll
-                constantV = 5;
-                //reintalize the calNum to display given constant number of images accross the screen
-                calNum += constantV;
-                callAjax(search[j]);
-                myScroll = 0;
-            } else {
-                loadList.hide();
-            }
+    $win.scroll(function () {
+        if ($win.scrollTop() + $win.height() > $doc.height() - $doc.height() / 4 && myScroll === 1 && j < search.length) {
+            h = 0;
+            //To reuse same Array link2 
+            link2.length = 0;
+            //load number of images after each scroll
+            constantV = 5;
+            //reintalize the calNum to display given constant number of images accross the screen
+            calNum += constantV;
+            callAjax(search[j]);
+            myScroll = 0;
+        }else if(j===search.length){
+            loadList.hide();  
         }
     });
 
     //dubugging zone
-    $("#debug").click(function () {
+    $('#debug').click(function () {
         $('#sDebug').append('<br>' + "Linklength1 : " + link.length + '<br>');
         $('#sDebug').append("Linklength2 : " + link2.length + '<br>');
         $("#sDebug").append("dubug j value :" + j + '<br>');
@@ -158,26 +148,30 @@ function show() {
     i = 0;
     //slideUp or fadeOut the textarea and button
     if (count === 0) {
-
         for (i; i < j; i++) {
             // $('#what').append( 'firstIvalue: ' + i);
             //indexOf(search[j]) returns -1 if the value is not present inside array search[j];
             //check if search[j] is not the first html list element 
-            if (filterWords.indexOf(search[i]) !== -1 && $('li').length > 0) {
+            if (filterWords.indexOf(search[i]) !== -1 && $list.length > 0) {
                 $('.withPic').last().append('<p class=onlyText>' + search[i] + '</p>');
             } else {
                 $('#display ul').append('<li id="showIt">' + '<figure>' + '<img src="' + link[i] + '" height=180 width=180>' +
                     '<figcaption>' + '<p class=withPic>' + search[i] + '</p>' + '</figcaption>' + '</figure>' + '</li>');
             }
         }
-
+        
         lastList = $('li:last').attr('id', 'showIt');
+        
+        //always put the loading at the last element
         $('#display ul').append(loadList);
+        //disable this for loop
         count = 1;
+        //initiate scroll
         myScroll = 1;
-
-        if (lastList.offset().top < $(window).height()) {
-            $(document).scroll();
+        
+        //for bigger bigger resolution or screen to load more list element than intiated max startNum value
+        if (lastList.offset().top < $win.height()) {
+           $win.scroll();
         }
 
     } else {
@@ -187,7 +181,6 @@ function show() {
             i = j - link2.length;
             loopNum = i + link2.length;
             //$('#what').append('<br>' + 'insideLOOPNUM: ' + loopNum);
-
             //Once value of j arrives here it'll be orginal value + constantV because callAjax function have already run twice
         } else {
             i = j - constantV;
@@ -196,51 +189,24 @@ function show() {
         for (i; i < loopNum; i++) {
             //indexOf(search[j]) returns -1 if the value is not present inside array search[j];
             //check if search[j] is not the first html list element 
-            if (filterWords.indexOf(search[i]) !== -1 && $('li').length > 0) {
+            if (filterWords.indexOf(search[i]) !== -1 && $list.length > 0) {
                 $('.withPic').last().append('<p class=onlyText>' + search[i] + '</p>');
             } else {
                 $('#display ul').append('<li id="showIt">' + '<figure>' + '<img src="' + link2[k] + '" height=180 width=180>' +
                     '<figcaption>' + '<p class=withPic>' + search[i] + '</p>' + '</figcaption>' + '</figure>' + '</li>');
             }
             k++;
-
-            // $('#what').append('<br>' + 'insideIvalue: ' + i);
-            // $('#what').append('<br>' + 'insideKvalue: ' + k);
-            // $('#what').append('<br>' + 'insideJvalue: ' + j);
+                //for debug purposes
+                // $('#what').append('<br>' + 'insideIvalue: ' + i);
+                // $('#what').append('<br>' + 'insideKvalue: ' + k);
+                // $('#what').append('<br>' + 'insideJvalue: ' + j);
         }
         $('#display ul').append(loadList);
         myScroll = 1;
-        if (lastList.offset().top < $(window).height()) {
-            $(document).scroll();
+        if (lastList.offset().top < $win.height()) {
+            $win.scroll();
         }
     }
 }
 
 
-
-/*
-function preTest() {
-    //append first list so that variable para can grab the list id
-    $('#display ul').append('<li id="fakeList">' + '<figure>' + '<div id="fakeBox">' + '</div>' + '<figcaption>' + '<p class=withPic>' + search[j] + '</p>' + '</figcaption>' + '</figure>' + '</li>');
-    para = $('li:last').attr('id', "fakeList");
-    //get the top height position of last list element
-    paraH = para.offset().top;
-    //remove the first list to avoid duplication 
-    $('li:first').remove();
-    for (var i = 0; i < search.length; i++) {
-        if (paraH < docHeight) {
-            $('#display ul').append('<li id="fakeList">' + '<figure>' + '<div id="fakeBox">' + '</div>' + '<figcaption>' + '<p class=withPic>' + search[j] + '</p>' + '</figcaption>' + '</figure>' + '</li>');
-            //update the para value with latest last list element and it's top position
-            para = $('li:last').attr('id', "fakeList");
-            paraH = para.offset().top;
-            j++;
-        }else{
-            para.remove();
-            calIndex = j - 1;
-            break;
-        }
-    }
-    // callAjax(search[j]);
-}
-
-*/
