@@ -26,7 +26,6 @@ p {
  margin-left:4px;   
 }
 
-
 #sDebug{
     background-color:brown;
 }
@@ -48,6 +47,7 @@ textarea{
 }
 
 #textInput{
+    color:white;
     position:absolute;
     display:block;
     resize:none;
@@ -55,7 +55,7 @@ textarea{
     left:12%;
     width:75%;
     height:70%;
-    background-color:#b2b1a6;
+    background-color:#333333;
     -moz-border-radius: 10px; 
     -webkit-border-radius: 10px;  
     border-radius: 20px; 
@@ -63,7 +63,7 @@ textarea{
 }
 
 #textInput:focus{
-  border-color:green;
+  border-color: #FF6C24;
   outline:none;
 }
 
@@ -85,7 +85,7 @@ textarea{
 
 #convert  {
     text-align:center;
-    background-color: #FF6600;
+    background-color: #FF6C24;
    -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -95,18 +95,23 @@ textarea{
    padding: 6% 8% ;
    border: none;
    }
-   
-#convert:disabled{
-  background-color:#FFAA70;
-}   
+ 
+#convert:hover{
+    background-color:#E55900;
+}
 
 #convert:active {
    background-color: #993D00;
    }
+   
+#convert:disabled{
+background-color:#FFAA70;
+}   
+
 
 #clear{
     text-align:center;
-    background-color: blue;
+    background-color: #007F41;
    -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -116,41 +121,46 @@ textarea{
    padding: 6% 8% ;
    border: none;
    }
-   
+  
+#clear:hover {
+   background-color:  #00683B;
+   }
+
+  
 #clear:active {
-   background-color: green;
+   background-color: #007F41;
    }
 
 #roundB{
   float:right;
-  margin-top:1%;
-  margin-right:1%;
+  margin-top:1.5%;
+  margin-right:5%;
   width:50px;
   height:50px;
-  background-color:#009933;
+  background-color: #FF6C24;
   border-radius:50%;
-  display:none;
   border: none;
   text-align:center;
-  font-size:1em;
+  font-size:2em;
+  color:white;
   display:none;
 }
 
 #roundB:hover{
-    background-color:#00CC00;
+    background-color:#E55900;
 }
 #roundB:active {
-   background-color: #993D00;
+   background-color: #FF6C24;
    }
 
 
 #closeB{
   float:right;
-  margin-top:1%;
-  margin-right:1%;
+  margin-top:1.5%;
+  margin-right:5%;
   width:50px;
   height:50px;
-  background-color:#FF3300;
+  background-color:#FF4024;
   border-radius:50%;
   border: none;
   text-align:center;
@@ -159,10 +169,10 @@ textarea{
 }
 
 #closeB:hover{
-    background-color:green;
+    background-color:#B20A00;
 }
 #closeB:active {
-   background-color:blue;
+   background-color:#FF4024;
    }
 
 /* Loading */
