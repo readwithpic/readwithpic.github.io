@@ -3,7 +3,7 @@ var link2 = new Array();
 var k, j, i, userInput, cleanSent, search,h, startNum, constantV, calNum;
 var filterWords = ["is", "are", "all", "another", "any", "anybody", "anyone", "anything", "botheach", "each", "other", "either", "everybody", "everyone", "everything", "few", "he", "her", "hers", "herself", "him", "himself", "his", "it", "its", "itself", "many", "me", "mine", "more", "most", "much", "myself", "neither", "no", "one", "nobody", "none", "nothing", "another", "other", "others", "ours", "ourselves", "several", "she", "some", "somebody", "someone", "something", "their", "theirs", "them", "themselves", "these", "they", "this", "those", "us", "we", "what", "whatever", "which", "whichever", "who", "whoever", "whom", "whomever", "whose", "you", "your", "yours", "yourself", "yourselves", "that", "it's", "time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact", "be", "have", "do", "say", "get", "make", "go", "know", "take", "see", "come", "think", "look", "want", "give", "use", "find", "tell", "ask", "work", "seem", "feel", "try", "leave", "call", "good", "new", "first", "last", "long", "great", "little", "own", "other", "old", "right", "big", "high", "different", "small", "large", "next", "early", "young", "important", "few", "public", "bad", "same", "able", "to", "of", "in", "for", "on", "with", "at", "by", "from", "up", "about", "into", "over", "after", "beneath", "under", "above", "the", "and", "a", "that", "", "it", "not", "he", "as", "you", "this", "but", "his", "they", "her", "she", "or", "an", "will", "my", "one", "all", "would", "there", "their", "aboard", "about", "above", "across", "after", "against", "along", "amid", "among", "around", "as", "at", "before", "behind", "below", "beneath", "beside", "besides", "between", "beyond", "but", "by", "concerning", "considering", "despite", "down", "during", "except", "excepting", "excluding", "following", "for", "from", "in", "inside", "into", "like", "minus", "near", "of", "off", "on", "onto", "opposite", "outside", "over", "past", "per", "plus", "regarding", "round", "save", "since", "than", "through", "to", "toward", "towards", "under", "underneath", "unlike", "until", "up", "upon", "versus", "via", "with", "within", "without"];
 var lastList,textInput,myScroll,loadList,count;
-var $win,$doc,$list;
+var $win,$doc,$list,$textArea,$roundB,$closeB,$showIt;
 
 $(document).ready(function () {
     $list= $('li');
@@ -11,21 +11,39 @@ $(document).ready(function () {
     loadList = $('#listLoad');
     $win=$(window);
     $doc=$(document);
-    $('textarea').keyup(function () {
+    $textArea=$('textarea');
+    $roundB=$('#roundB');
+    $closeB=$('#closeB');
+   
+    
+    $textArea.keyup(function () {
         if ($(this).val()) {
             $('#convert').removeAttr('disabled');
         } else {
             $('#convert').attr('disabled', 'disabled');
         }
     });
-
+  
     $('#convert').click(function () {
+       
+        //textarea control
         if (textInput.height() > 350) {
-            $('#textBox').fadeOut('fast');
+            $('#textInput').fadeOut('fast');
+            $('.mainGroup').fadeOut('fast');
+            $closeB.hide();
         } else {
-            $('#textBox').slideUp('fast');
+            $('#textInput').slideUp('fast');
+            $('.mainGroup').fadeOut('fast');
         }
+        //grab appened list class showIt
+        $('li').remove();
+        
+        //$(li).remove() removes everyting so loading is appeneded at first
+        $('#display ul').append(loadList);
+        //display loading
         loadList.show();
+        //display round button
+        $roundB.show('fast');
         count = 0;
         h = 0;
         j = 0;
@@ -36,42 +54,47 @@ $(document).ready(function () {
         link.length = 0;
         link2.length = 0;
         $('#what').empty();
-        $('#showIt').remove();
         $('.onlyText').remove();
         userInput = $('textarea[name=texthere]').val();
         cleanSent = userInput.replace(/\s+/g, ' ');
         search = cleanSent.split(" ");
         callAjax(search[j]);
+      
+ 
     });
-
+    
+    $('#clear').click(function(){
+        $textArea.val('');
+    });
+    
+    
     $('#roundB').click(function () {
         //display textBox at the middle of screen.
-        $('#textBox').css('position', 'absolute');
         $('#textInput').css({
+            'position':'fixed',
             'top': '11%',
             'left': '9%',
             'width': '80%',
-            'height': '150%'
+            'height': '70%'
         });
-        $('#convert').css({
-            'top': '165%'
+        $('.mainGroup').css({
+            'position':'fixed',
+            'top':'82%'
         });
-        $('#textBox').fadeIn();
+        $('#textInput').fadeIn('fast');
+        $('.mainGroup').fadeIn('fast');
+        $('#closeB').show();
+        $(this).hide();
     });
-
-    $("#loadme").click(function () {
-        if (j < search.length) {
-            h = 0;
-            //To reuse same Array link2 
-            link2.length = 0;
-            //load number of images after each scroll
-            constantV = 5;
-            //reintalize the calNum to display given constant number of images accross the screen
-            calNum += constantV;
-            callAjax(search[j]);
-        }
+    
+    //close button
+    $('#closeB').click(function(){
+         $('#textInput').fadeOut('fast');
+         $('.mainGroup').fadeOut('fast');
+         $roundB.show();
+         $(this).hide();
     });
-
+    
     $win.resize(function () {
         // load the rest of screen if the user reduce the zoom less than 100%      
         if (lastList.offset().top < $win.height() && myScroll === 1) {
@@ -155,12 +178,13 @@ function show() {
             if (filterWords.indexOf(search[i]) !== -1 && $list.length > 0) {
                 $('.withPic').last().append('<p class=onlyText>' + search[i] + '</p>');
             } else {
-                $('#display ul').append('<li id="showIt">' + '<figure>' + '<img src="' + link[i] + '" height=180 width=180>' +
+                $('#display ul').append('<li class="showIt">' + '<figure>' + '<img src="' + link[i] + '" height=180 width=180>' +
                     '<figcaption>' + '<p class=withPic>' + search[i] + '</p>' + '</figcaption>' + '</figure>' + '</li>');
             }
         }
         
-        lastList = $('li:last').attr('id', 'showIt');
+        //get the last list element
+        lastList = $('li:last').attr('class', 'showIt');
         
         //always put the loading at the last element
         $('#display ul').append(loadList);
@@ -192,7 +216,7 @@ function show() {
             if (filterWords.indexOf(search[i]) !== -1 && $list.length > 0) {
                 $('.withPic').last().append('<p class=onlyText>' + search[i] + '</p>');
             } else {
-                $('#display ul').append('<li id="showIt">' + '<figure>' + '<img src="' + link2[k] + '" height=180 width=180>' +
+                $('#display ul').append('<li class="showIt">' + '<figure>' + '<img src="' + link2[k] + '" height=180 width=180>' +
                     '<figcaption>' + '<p class=withPic>' + search[i] + '</p>' + '</figcaption>' + '</figure>' + '</li>');
             }
             k++;
