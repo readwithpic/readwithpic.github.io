@@ -26,6 +26,7 @@ $(document).ready(function () {
     $('#convert').click(function () {
         //to avoid rapid click
         $('#convert').attr('disabled', 'disabled');
+        $('.front').remove();
         //textarea control
         if (textInput.height() > 350) {
             $('#textInput').fadeOut('fast');
