@@ -3,7 +3,7 @@ var link2 = new Array();
 var k, j, i, userInput, cleanSent, search,h, startNum, constantV, calNum;
 var filterWords = ["is", "are", "all", "another", "any", "anybody", "anyone", "anything", "botheach", "each", "other", "either", "everybody", "everyone", "everything", "few", "he", "her", "hers", "herself", "him", "himself", "his", "it", "its", "itself", "many", "me", "mine", "more", "most", "much", "myself", "neither", "no", "one", "nobody", "none", "nothing", "another", "other", "others", "ours", "ourselves", "several", "she", "some", "somebody", "someone", "something", "their", "theirs", "them", "themselves", "these", "they", "this", "those", "us", "we", "what", "whatever", "which", "whichever", "who", "whoever", "whom", "whomever", "whose", "you", "your", "yours", "yourself", "yourselves", "that", "it's", "time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact", "be", "have", "do", "say", "get", "make", "go", "know", "take", "see", "come", "think", "look", "want", "give", "use", "find", "tell", "ask", "work", "seem", "feel", "try", "leave", "call", "good", "new", "first", "last", "long", "great", "little", "own", "other", "old", "right", "big", "high", "different", "small", "large", "next", "early", "young", "important", "few", "public", "bad", "same", "able", "to", "of", "in", "for", "on", "with", "at", "by", "from", "up", "about", "into", "over", "after", "beneath", "under", "above", "the", "and", "a", "that", "", "it", "not", "he", "as", "you", "this", "but", "his", "they", "her", "she", "or", "an", "will", "my", "one", "all", "would", "there", "their", "aboard", "about", "above", "across", "after", "against", "along", "amid", "among", "around", "as", "at", "before", "behind", "below", "beneath", "beside", "besides", "between", "beyond", "but", "by", "concerning", "considering", "despite", "down", "during", "except", "excepting", "excluding", "following", "for", "from", "in", "inside", "into", "like", "minus", "near", "of", "off", "on", "onto", "opposite", "outside", "over", "past", "per", "plus", "regarding", "round", "save", "since", "than", "through", "to", "toward", "towards", "under", "underneath", "unlike", "until", "up", "upon", "versus", "via", "with", "within", "without"];
 var lastList,textInput,myScroll,loadList,count;
-var $win,$doc,$list,$textArea,$roundB,$closeB,$showIt;
+var $win,$doc,$list,$textArea,$roundB,$closeB;
 
 $(document).ready(function () {
     $list= $('li');
@@ -14,10 +14,9 @@ $(document).ready(function () {
     $textArea=$('textarea');
     $roundB=$('#roundB');
     $closeB=$('#closeB');
-   
     
     $textArea.keyup(function () {
-        if ($(this).val()) {
+        if ($(this).val()){
             $('#convert').removeAttr('disabled');
         } else {
             $('#convert').attr('disabled', 'disabled');
@@ -60,8 +59,6 @@ $(document).ready(function () {
         cleanSent = userInput.replace(/\s+/g, ' ');
         search = cleanSent.split(" ");
         callAjax(search[j]);
-      
- 
     });
     
     $('#clear').click(function(){
