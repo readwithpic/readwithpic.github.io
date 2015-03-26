@@ -181,7 +181,7 @@ function show() {
             }
         }
         
-        //get the last list element
+        //get the last list edlement
         lastList = $('li:last').attr('class', 'showIt');
         
         //always put the loading at the last element
