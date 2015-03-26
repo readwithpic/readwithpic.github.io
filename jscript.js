@@ -14,7 +14,7 @@ $(document).ready(function () {
     $textArea=$('textarea');
     $roundB=$('#roundB');
     $closeB=$('#closeB');
-    
+    //$textArea.val("Read with pictures");
     $textArea.keyup(function () {
         if ($(this).val()){
             $('#convert').removeAttr('disabled');
