@@ -61,6 +61,7 @@ textarea{
 
 #textInput{
     color:white;
+    font-size:1em;
     position:absolute;
     display:block;
     resize:none;
