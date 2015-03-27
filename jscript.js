@@ -48,6 +48,7 @@ $(document).ready(function () {
         count = 0;
         h = 0;
         j = 0;
+        myScroll=0;
         // default number of search images to be loaded at first
         startNum = 10;
         //constantV is assigned to calNum to load given number consistant images after each scroll
@@ -106,6 +107,7 @@ $(document).ready(function () {
         if ($win.scrollTop() + $win.height() > $doc.height() - $doc.height() / 4 && myScroll === 1 && j < search.length) {
             h = 0;
             //To reuse same Array link2 
+            link.length =0;
             link2.length = 0;
             //load number of images after each scroll
             constantV = 5;
@@ -191,7 +193,6 @@ function show() {
         count = 1;
         //initiate scroll
         myScroll = 1;
-        
         //for bigger bigger resolution or screen to load more list element than intiated max startNum value
         if (lastList.offset().top < $win.height()) {
            $win.scroll();

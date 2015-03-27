@@ -1,7 +1,5 @@
 html, body { height: 100%; width: 100%; margin: 0; }
 
-
-
 .logo{
     text-align:center;
     font-size:1em;
@@ -11,6 +9,10 @@ li {
     text-align:center;
     height:250px;
     padding-left:-100px;
+}
+
+.showIt{
+    display:inline-block;
 }
 img{
     margin-right:-70px;
@@ -98,6 +100,7 @@ textarea{
 }
 
 #convert  {
+    display:inline-block;
     text-align:center;
     background-color: #FF6C24;
    -webkit-border-radius: 8px;
@@ -124,6 +127,7 @@ background-color:#FFAA70;
 
 
 #clear{
+    position:absolute;
     text-align:center;
     background-color: #007F41;
    -webkit-border-radius: 8px;
@@ -146,6 +150,7 @@ background-color:#FFAA70;
    }
 
 #roundB{
+  display:inline-block;
   position:fixed;
   top:1.5%;
   right:5%;
