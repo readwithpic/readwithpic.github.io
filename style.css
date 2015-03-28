@@ -1,9 +1,36 @@
 html, body { height: 100%; width: 100%; margin: 0; }
 
+
+
 .logo{
     text-align:center;
-    font-size:1em;
+    cursor:hand;
 }
+
+
+a:link {
+    color:black;
+    text-decoration: none;
+}
+
+a:visited {
+    color:black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+
+}
+
+.fb-like{
+    width:200px;
+}
+
 li {
     display: inline-block;
     text-align:center;
@@ -14,6 +41,7 @@ li {
 .showIt{
     display:inline-block;
 }
+
 img{
     margin-right:-70px;
     float:left;
@@ -61,7 +89,7 @@ textarea{
 
 #textInput{
     color:white;
-    font-size:1em;
+    font-size:1.2em;
     position:absolute;
     display:block;
     resize:none;
@@ -126,9 +154,16 @@ textarea{
 background-color:#FFAA70;
 }   
 
-
-#clear{
+#buttonSpin{
     position:absolute;
+    margin-top:10%;
+    margin-left:28%;
+    display:none;
+}
+
+#clear{    
+    position:absolute;
+    margin-left:4px;
     text-align:center;
     background-color: #007F41;
    -webkit-border-radius: 8px;
@@ -151,7 +186,6 @@ background-color:#FFAA70;
    }
 
 #roundB{
-  display:inline-block;
   position:fixed;
   top:1.5%;
   right:5%;
@@ -207,7 +241,9 @@ background-color:#FFAA70;
     position:absolute;
     top:77px;
     left:67px;
+    z-index:-2;
 }
+
 
 spinner {
   margin-left:100px;
@@ -254,91 +290,3 @@ spinner {
     -webkit-transform: scale(1.0);
   }
 }
-
-@media only screen and (min-width: 0px) {
-   
-  /* Styles */
-}
-
-/* iPhone 4*/
-@media only screen and (min-width: 320px) {
-   
-  /* Styles */
-}
-
-
-/* Samsung Galaxy S5 (portrait) ----------- */
-@media only screen and (min-width: 360px) {
-/* Styles */
- 
-}
-
-/* iPhone 6 (portrait) ----------- */
-@media only screen and (min-width: 375px) {
-/* Styles */
-  
-}
-
-/* iPhone 6+ (portrait) ----------- */
-@media only screen and (min-width: 414px) {
-/* Styles */
-
-   
-}
-
-/* iPhone 4 (landscape) ----------- */
-@media only screen and (min-width: 480px) {
-/* Styles */
- 
-}
-
-
-/* iPhone 5 (landscape) ----------- */
-@media only screen and  (min-width: 568px){
-/* Styles */
-  
-}
-
-/* Samsung Galaxy S3 (landscape) ----------- */
-@media only screen and (min-width: 640px){
-/* Styles */
-  
-}
-
-/* iPhone 6 (landscape) ----------- */
-@media only screen and (min-width: 667px) {
-/* Styles */
- 
-}
-
-/* iPhone 6+ (landscape) ----------- */
-@media only screen and  (min-width: 736px){
-/* Styles */
- 
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-width: 768px)  {
-/* Styles */
- 
-}
-
-/* iPads (landscape) ----------- */
-@media only screen and (min-width: 1024px){
-/* Styles */
- 
-}
-
-/* Desktops and laptops ----------- */
-@media only screen  and (min-width: 1224px) {
-/* Styles */
-
-    
-}
-
-/* Large screens ----------- */
-@media only screen  and (min-width:1824px) {
-/* Styles */
- 
-}
-
