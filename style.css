@@ -1,20 +1,17 @@
 html, body { height: 100%; width: 100%; margin: 0; }
 
 
-
 .logo{
     text-align:center;
     cursor:hand;
 }
 
-
 a:link {
-    color:black;
     text-decoration: none;
 }
 
 a:visited {
-    color:black;
+   
     text-decoration: none;
 }
 
@@ -25,6 +22,49 @@ a:hover {
 a:active {
     text-decoration: none;
 
+}
+.linkColor{
+    color:black;
+}
+.facebook{
+   text-align:center;
+   background-color: #3763A8;
+   color: white;
+   font-size: 1.2em;
+   text-decoration: none;
+   padding: 0.1% 0.1% ;
+   border: none;
+}
+
+.facebook:hover{
+    background-color:#3b5998;
+}
+
+.facebook:active{
+    background-color:#3763A8;
+}
+
+.feedback{
+   text-align:center;
+   background-color: #BF4572;
+   color: white;
+   font-size: 1.2em;
+   text-decoration: none;
+   padding: 0.1% 0.1% ;
+   border: none;
+
+}
+
+.feedback:hover{
+    background-color:#7F2E4C;
+}
+
+.feedback:active{
+    background-color:#BF4572;
+}
+
+.bLink{
+    color:white;
 }
 
 .fb-like{
@@ -203,10 +243,10 @@ background-color:#FFAA70;
 #roundB:hover{
     background-color:#E55900;
 }
+
 #roundB:active {
    background-color: #FF6C24;
    }
-
 
 #closeB{
   position:fixed;
@@ -225,9 +265,10 @@ background-color:#FFAA70;
 #closeB:hover{
     background-color:#B20A00;
 }
+
 #closeB:active {
    background-color:#FF4024;
-   }
+}
 
 /* Loading */
 #listLoad{
@@ -243,7 +284,6 @@ background-color:#FFAA70;
     left:67px;
     z-index:-2;
 }
-
 
 spinner {
   margin-left:100px;

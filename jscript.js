@@ -5,14 +5,6 @@ var filterWords = ["is", "are", "all", "another", "any", "anybody", "anyone", "a
 var lastList, textInput, myScroll, loadList, count;
 var $win, $doc, $list, $textArea, $roundB, $closeB,$buttonSpin;
 //facebook
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
 
 $(document).ready(function () {
     $list = $('li');

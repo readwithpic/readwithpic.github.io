@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style.css" />
@@ -8,61 +9,80 @@
     </head>
     
     <body>
+        <!-- <button type="button" id="feedback">Feedback</button>-->
         <!--Facebook Code-->
-        <div id="fb-root"></div>
-        <div class="fb-like" data-href="https://www.facebook.com/readwithpic" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-        <div class="logo"><a href="http://readwithpic.github.io">ReadWithPic</a></div>
-        <div id="textBox">
-               <div>
-                      <button type="button" id="roundB"><p class="msg">C..</p></button>
-                      <button type="button" id="closeB"><p class="msg">X</p></button>
-               </div>
-               
-                <div>
-                    <textarea rows="10" cols="80" id="textInput" name="texthere">Read with pictures</textarea>
-                </div>
-        
-                <div class="mainGroup">
-                    <div class="group">
-                        <div id="buttonSpin">
-                            <div class="spinner">
-                                <div class="bounce1"></div>
-                                <div class="bounce2"></div>
-                                <div class="bounce3"></div>
-                            </div>
-                        </div>
-                         <button type="button" id="convert" >ReadWithPic</button>
-                        <button type="button" id="clear">Clear</button>
-                    </div>
-                </div>
+        <div class="social">
+            <button type="button" class="facebook"><a href="https://www.facebook.com/readwithpic" class="bLink">facebook</a>
+            </button>
+            <button type="button" class="feedback"><a href="https://www.facebook.com/readwithpic" class="bLink">feedback</a>
+            </button>
         </div>
-        
+        <div class="logo"><a href="http://readwithpic.github.io" class="linkColor">ReadWithPic</a>
+        </div>
+        <div id="textBox">
+            <div>
+                <button type="button" id="roundB">
+                    <p class="msg">R..</p>
+                </button>
+                <button type="button" id="closeB">
+                    <p class="msg">X</p>
+                </button>
+            </div>
+            <div>
+                <textarea rows="10" cols="80" id="textInput" name="texthere">Read with pictures</textarea>
+            </div>
+            <div class="mainGroup">
+                <div class="group">
+                    <div id="buttonSpin">
+                        <div class="spinner">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                    </div>
+                    <button type="button" id="convert">ReadWithPic</button>
+                    <button type="button" id="clear">Clear</button>
+                </div>
+            </div>
+        </div>
         <div class="front">
             <ul>
-                  <li class="showIt"><figure><img src="http://www.auburn.edu/academic/education/reading_genie/navig/read.gif" height=180 width=180>
-                    <figcaption><p class='withPic'>Read with</p></figcaption></figure></li> 
-                      <li class="showIt"><figure><img src="https://pbs.twimg.com/profile_images/425063504039538688/sO0mRdKW.jpeg" height=180 width=180>
-                    <figcaption><p class='withPic'>pictures</p></figcaption></figure></li>   
-                    
+                <li class="showIt">
+                    <figure>
+                        <img src="http://www.auburn.edu/academic/education/reading_genie/navig/read.gif" height=180 width=180>
+                        <figcaption>
+                            <p class='withPic'>Read with</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="showIt">
+                    <figure>
+                        <img src="https://pbs.twimg.com/profile_images/425063504039538688/sO0mRdKW.jpeg" height=180 width=180>
+                        <figcaption>
+                            <p class='withPic'>pictures</p>
+                        </figcaption>
+                    </figure>
+                </li>
             </ul>
         </div>
-        <!--debug
-          <button type="button" id="loadme">Load</button>
+        <!--debug <button type="button" id="loadme">Load</button>
             <button type="button" id="debug">debug</button>
            -->
         <div id="display">
-                 <ul>
-                     <li id="listLoad">
-                        <div id="loadingSpin">
-                            <div class="spinner">
-                                <div class="bounce1"></div>
-                                <div class="bounce2"></div>
-                                <div class="bounce3"></div>
-                            </div>
+            <ul>
+                <li id="listLoad">
+                    <div id="loadingSpin">
+                        <div class="spinner">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-            <div><span id="sDebug"> </span><span id="what"></span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div><span id="sDebug"> </span><span id="what"></span>
+        </div>
     </body>
+
 </html>
