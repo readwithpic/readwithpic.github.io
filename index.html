@@ -31,6 +31,18 @@
             <div>
                 <textarea rows="10" cols="80" id="textInput" name="texthere">Read with pictures</textarea>
             </div>
+            <div class="optionBox">
+                <form action="#">
+                    <div id="checkboxP">
+                        <input type="checkbox" name="option" id="funny">
+                        <label for="funny"><span class="cText"> Humour</span></label>
+                    </div>
+                    <div id="divAni">
+                        <input type="checkbox" name="option" id="ani">
+                        <label for="ani"><span class="cText">Animation</span></label>
+                    </div>
+                </form>
+            </div>
             <div class="mainGroup">
                 <div class="group">
                     <div id="buttonSpin">
@@ -41,6 +53,7 @@
                         </div>
                     </div>
                     <button type="button" id="convert">ReadWithPic</button>
+                    <button type="button" id="option"><span id='optionText'>Option</span><span id='optionClose'>X</span></button>
                     <button type="button" id="clear">Clear</button>
                 </div>
             </div>

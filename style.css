@@ -154,11 +154,52 @@ textarea{
     top:60%;
 }
 
+.optionBox{
+   position:absolute;
+    top:14%;
+    background-color:#B24D4A;
+    width:190px;
+    height:90px;
+    color:white;
+    border-top-right-radius:20px;
+    border-bottom-right-radius:20px;
+    display:none;
+}
+
+#optionText{
+    display:block;
+}
+
+#optionClose{
+   margin-left:28.5px; 
+   margin-right:26px;
+   display:none;
+}
+
+.cText{
+   font-size:1.5em;
+}
+
+input[type=checkbox]
+{
+  display:inline-bloc;
+   margin-left:15px;
+   margin-top:15px;
+   margin-right:10px;
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(3); /* IE */
+  -moz-transform: scale(3); /* FF */
+  -webkit-transform: scale(3); /* Safari and Chrome */
+  -o-transform: scale(3); /* Opera */
+  padding: 10px;
+
+}
+
 .mainGroup {
     float:left;
     position:relative;
     top:88%;
-    left:50%;
+    left:44%;
 }
 
 .group {
@@ -168,6 +209,9 @@ textarea{
     left:-50%;
 }
 
+#divAni{
+    margin-top:10px;
+}
 #convert  {
     display:inline-block;
     text-align:center;
@@ -203,7 +247,8 @@ background-color:#FFAA70;
 
 #clear{    
     position:absolute;
-    margin-left:4px;
+    display:inline-block;
+    margin-left:119px;
     text-align:center;
     background-color: #007F41;
    -webkit-border-radius: 8px;
@@ -224,6 +269,31 @@ background-color:#FFAA70;
 #clear:active {
    background-color: #007F41;
    }
+
+#option{    
+    position:absolute;
+    margin-left:7.5px;
+    text-align:center;
+    background-color:#B24D4A;
+   -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+   color: white;
+   font-size: 1.5em;
+   text-decoration: none;
+   padding: 6% 8% ;
+   border: none;
+   }
+  
+#option:hover {
+   background-color:#B23734;
+   }
+
+  
+#option:active {
+   background-color:#B24D4A;
+   }
+
 
 #roundB{
   position:fixed;

@@ -2,8 +2,8 @@ var link = new Array();
 var link2 = new Array();
 var k, j, i, userInput, cleanSent, search, h, startNum, constantV, calNum;
 var filterWords = ["is", "are", "all", "another", "any", "anybody", "anyone", "anything", "botheach", "each", "other", "either", "everybody", "everyone", "everything", "few", "he", "her", "hers", "herself", "him", "himself", "his", "it", "its", "itself", "many", "me", "mine", "more", "most", "much", "myself", "neither", "no", "one", "nobody", "none", "nothing", "another", "other", "others", "ours", "ourselves", "several", "she", "some", "somebody", "someone", "something", "their", "theirs", "them", "themselves", "these", "they", "this", "those", "us", "we", "what", "whatever", "which", "whichever", "who", "whoever", "whom", "whomever", "whose", "you", "your", "yours", "yourself", "yourselves", "that", "it's", "time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact", "be", "have", "do", "say", "get", "make", "go", "know", "take", "see", "come", "think", "look", "want", "give", "use", "find", "tell", "ask", "work", "seem", "feel", "try", "leave", "call", "good", "new", "first", "last", "long", "great", "little", "own", "other", "old", "right", "big", "high", "different", "small", "large", "next", "early", "young", "important", "few", "public", "bad", "same", "able", "to", "of", "in", "for", "on", "with", "at", "by", "from", "up", "about", "into", "over", "after", "beneath", "under", "above", "the", "and", "a", "that", "", "it", "not", "he", "as", "you", "this", "but", "his", "they", "her", "she", "or", "an", "will", "my", "one", "all", "would", "there", "their", "aboard", "about", "above", "across", "after", "against", "along", "amid", "among", "around", "as", "at", "before", "behind", "below", "beneath", "beside", "besides", "between", "beyond", "but", "by", "concerning", "considering", "despite", "down", "during", "except", "excepting", "excluding", "following", "for", "from", "in", "inside", "into", "like", "minus", "near", "of", "off", "on", "onto", "opposite", "outside", "over", "past", "per", "plus", "regarding", "round", "save", "since", "than", "through", "to", "toward", "towards", "under", "underneath", "unlike", "until", "up", "upon", "versus", "via", "with", "within", "without"];
-var lastList, textInput, myScroll, loadList, count;
-var $win, $doc, $list, $textArea, $roundB, $closeB,$buttonSpin;
+var lastList, textInput, myScroll, loadList, count,option='',animation='';
+var $win, $doc, $list, $textArea, $roundB, $closeB,$buttonSpin,$funny,$ani;
 //facebook
 
 $(document).ready(function () {
@@ -16,6 +16,8 @@ $(document).ready(function () {
     $roundB = $('#roundB');
     $closeB = $('#closeB');
     $buttonSpin=$('#buttonSpin');
+    $funny=$('#funny');
+    $ani=$('#ani');
     //$textArea.val("Read with pictures");
     $textArea.keyup(function () {
         if ($(this).val() && $('li').length > 1) {
@@ -38,7 +40,18 @@ $(document).ready(function () {
             $('#textInput').slideUp('fast');
             $('.mainGroup').fadeOut('fast');
         }
+         
+        if($funny.is(':checked')){
+            option='funny';
+        }else{
+            option='';
+        }
         
+        if($ani.is(':checked')){
+            animation='imgtype=animated&';
+        }else{
+            animation='';
+        }
         //grab appened list class showIt
         $('li').remove();
         //$(li).remove() removes everyting so loading is appeneded at first
@@ -69,7 +82,19 @@ $(document).ready(function () {
     $('#clear').click(function () {
         $textArea.val('');
     });
-
+    
+    $('#option').click(function() {
+        if($('.optionBox').is(':visible')){
+            $('.optionBox').hide();
+            $('#optionText').show();
+            $('#optionClose').hide();
+        }else{
+            $('.optionBox').show();
+            $('#optionText').hide();
+            $('#optionClose').show();
+        }
+    });
+      
     $('#roundB').click(function () {
         //display textBox at the middle of screen.
         $('#textInput').css({
@@ -134,9 +159,21 @@ $(document).ready(function () {
 });
 
 function callAjax(index) {
-    var look = new URL('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + index + '&callback=?');
+    var choice,aniPic;
+    var rand=Math.floor(Math.random() * 3);
+    if( rand === 1 && option==='funny'){
+        choice='funny';
+    }else{
+        choice='';
+    }
+    if(rand === 1 || rand=== 2 && animation==='imgtype=animated&'){
+        aniPic='imgtype=animated&';
+    }else{
+        aniPic='';
+    }
+    var look = new URL('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&' + aniPic + 'q=' + choice + index + '&callback=?');
     $.ajax({
-        url: look,
+        url:look,
         dataType: 'json',
         success: function (data) {
             if (data.responseData.results.length === 0) {
