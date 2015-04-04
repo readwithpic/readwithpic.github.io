@@ -27,6 +27,7 @@ a:active {
     color:black;
 }
 .facebook{
+   cursor:pointer;
    text-align:center;
    background-color: #3763A8;
    color: white;
@@ -45,6 +46,7 @@ a:active {
 }
 
 .feedback{
+   cursor:pointer;
    text-align:center;
    background-color: #BF4572;
    color: white;
@@ -61,10 +63,6 @@ a:active {
 
 .feedback:active{
     background-color:#BF4572;
-}
-
-.bLink{
-    color:white;
 }
 
 .fb-like{
