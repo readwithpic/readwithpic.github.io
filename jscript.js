@@ -2,7 +2,7 @@ var link = new Array();
 var link2 = new Array();
 var k, j, i, userInput, cleanSent, search, h, startNum, constantV, calNum;
 var filterWords = ["is", "are", "all", "another", "any", "anybody", "anyone", "anything", "botheach", "each", "other", "either", "everybody", "everyone", "everything", "few", "he", "her", "hers", "herself", "him", "himself", "his", "it", "its", "itself", "many", "me", "mine", "more", "most", "much", "myself", "neither", "no", "one", "nobody", "none", "nothing", "another", "other", "others", "ours", "ourselves", "several", "she", "some", "somebody", "someone", "something", "their", "theirs", "them", "themselves", "these", "they", "this", "those", "us", "we", "what", "whatever", "which", "whichever", "who", "whoever", "whom", "whomever", "whose", "you", "your", "yours", "yourself", "yourselves", "that", "it's", "time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact", "be", "have", "do", "say", "get", "make", "go", "know", "take", "see", "come", "think", "look", "want", "give", "use", "find", "tell", "ask", "work", "seem", "feel", "try", "leave", "call", "good", "new", "first", "last", "long", "great", "little", "own", "other", "old", "right", "big", "high", "different", "small", "large", "next", "early", "young", "important", "few", "public", "bad", "same", "able", "to", "of", "in", "for", "on", "with", "at", "by", "from", "up", "about", "into", "over", "after", "beneath", "under", "above", "the", "and", "a", "that", "", "it", "not", "he", "as", "you", "this", "but", "his", "they", "her", "she", "or", "an", "will", "my", "one", "all", "would", "there", "their", "aboard", "about", "above", "across", "after", "against", "along", "amid", "among", "around", "as", "at", "before", "behind", "below", "beneath", "beside", "besides", "between", "beyond", "but", "by", "concerning", "considering", "despite", "down", "during", "except", "excepting", "excluding", "following", "for", "from", "in", "inside", "into", "like", "minus", "near", "of", "off", "on", "onto", "opposite", "outside", "over", "past", "per", "plus", "regarding", "round", "save", "since", "than", "through", "to", "toward", "towards", "under", "underneath", "unlike", "until", "up", "upon", "versus", "via", "with", "within", "without"];
-var lastList, textInput, myScroll, loadList, count,option='',animation='';
+var lastList, textInput, myScroll, loadList, count,option,animation;
 var $win, $doc, $list, $textArea, $roundB, $closeB,$buttonSpin,$funny,$ani;
 //facebook
 
@@ -52,6 +52,9 @@ $(document).ready(function () {
         }else{
             animation='';
         }
+        $('.optionBox').hide();
+        $('#optionText').show();
+        $('#optionClose').hide();
         //grab appened list class showIt
         $('li').remove();
         //$(li).remove() removes everyting so loading is appeneded at first
@@ -99,7 +102,7 @@ $(document).ready(function () {
         //display textBox at the middle of screen.
         $('#textInput').css({
             'position': 'fixed',
-                'top': '11%',
+                'top': '10%',
                 'left': '9%',
                 'width': '80%',
                 'height': '70%'
@@ -111,6 +114,11 @@ $(document).ready(function () {
         $('#textInput').fadeIn('fast');
         $('.mainGroup').fadeIn('fast');
         $('#closeB').show();
+        $('.optionBox').css({
+            'position': 'fixed',
+                'top': '14%',
+               
+        });
         $(this).hide();
     });
 
@@ -119,7 +127,11 @@ $(document).ready(function () {
         $('#textInput').fadeOut('fast');
         $('.mainGroup').fadeOut('fast');
         $roundB.show();
+        $('.optionBox').hide();
+         $('#optionText').show();
+        $('#optionClose').hide();
         $(this).hide();
+        
     });
     
     $win.resize(function () {
@@ -166,7 +178,7 @@ function callAjax(index) {
     }else{
         choice='';
     }
-    if(rand === 1 || rand=== 2 && animation==='imgtype=animated&'){
+    if((rand === 1 || rand===2) && animation==='imgtype=animated&'){
         aniPic='imgtype=animated&';
     }else{
         aniPic='';
