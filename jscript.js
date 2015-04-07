@@ -183,7 +183,7 @@ function callAjax(index) {
     }else{
         aniPic='';
     }
-    var look = new URL('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&' + aniPic + 'q=' + choice + index + '&callback=?');
+    var look = new URL('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&safe=active&' + aniPic + 'q=' + choice + index + '&callback=?');
     $.ajax({
         url:look,
         dataType: 'json',
