@@ -123,6 +123,7 @@ $(document).ready(function () {
      
     //Text are control(round button)    ---START--->
     $('#roundB').click(function () {
+        $('#readwithpic').removeAttr('disabled');
         //display textBox at the middle of screen.
         $('#textInput').css({
             'position': 'fixed',
