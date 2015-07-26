@@ -1,6 +1,5 @@
 html, body { height: 100%; width: 100%; margin: 0; }
 
-
 .logo{
     text-align:center;
     cursor:hand;
@@ -102,6 +101,7 @@ p {
     top:-205px;
     z-index:-1;
 }
+
 .onlyText{
  margin-left:4px;  
 }
@@ -139,7 +139,6 @@ textarea{
     -moz-border-radius: 10px; 
     -webkit-border-radius: 10px;  
     border-radius: 20px; 
-
 }
 
 #textInput:focus{
@@ -174,8 +173,16 @@ textarea{
    display:none;
 }
 
+/*To fix option close button on firefox*/
+@-moz-document url-prefix() {
+    #optionClose{
+       margin-right:33px;
+    }
+}
+   
+
 .cText{
-   font-size:1.5em;
+   font-size:1em;
 }
 
 input[type=checkbox]
@@ -185,10 +192,10 @@ input[type=checkbox]
    margin-top:15px;
    margin-right:10px;
   /* Double-sized Checkboxes */
-  -ms-transform: scale(3); /* IE */
-  -moz-transform: scale(3); /* FF */
-  -webkit-transform: scale(3); /* Safari and Chrome */
-  -o-transform: scale(3); /* Opera */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
   padding: 10px;
 
 }
@@ -258,7 +265,14 @@ background-color:#FFAA70;
    padding: 6% 8% ;
    border: none;
    }
-  
+   
+  /* To fix the clear button position on firefox */
+@-moz-document url-prefix() {
+    #clear{
+       margin-left:130px;
+    }
+}
+   
 #clear:hover {
    background-color:  #00683B;
    }
