@@ -26,7 +26,7 @@ a:active {
 .linkColor{
     color:black;
 }
-.facebook{
+#facebook{
    cursor:pointer;
    text-align:center;
    background-color: #3763A8;
@@ -37,15 +37,15 @@ a:active {
    border: none;
 }
 
-.facebook:hover{
+#facebook:hover{
     background-color:#3b5998;
 }
 
-.facebook:active{
+#facebook:active{
     background-color:#3763A8;
 }
 
-.feedback{
+#feedback{
    cursor:pointer;
    text-align:center;
    background-color: #BF4572;
@@ -57,11 +57,11 @@ a:active {
 
 }
 
-.feedback:hover{
+#feedback:hover{
     background-color:#7F2E4C;
 }
 
-.feedback:active{
+#feedback:active{
     background-color:#BF4572;
 }
 
@@ -210,7 +210,7 @@ input[type=checkbox]
 #divAni{
     margin-top:10px;
 }
-#convert  {
+#readwithpic  {
     display:inline-block;
     text-align:center;
     background-color: #FF6C24;
@@ -224,15 +224,15 @@ input[type=checkbox]
    border: none;
    }
  
-#convert:hover{
+#readwithpic:hover{
     background-color:#E55900;
 }
 
-#convert:active {
+#readwithpic:active {
    background-color: #993D00;
    }
    
-#convert:disabled{
+#readwithpic:disabled{
 background-color:#FFAA70;
 }   
 
